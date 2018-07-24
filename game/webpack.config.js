@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: "./main.js",
+  entry: "./js/main.js",
   output: {
     path: path.resolve(__dirname),
-    filename: "game_bundle.js"
+    filename: "./js/game_bundle.js"
   },
   module: {
     rules: [
