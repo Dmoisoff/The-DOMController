@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1{
+  font-size: 60px;
+  padding-top: 30px;
+  padding-bottom: 14px;
+}
+
+h2{
+  font-size: 30px;
+  padding-top: 14px;
+}
+
+.board {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.square {
+  box-sizing: border-box;
+  width: 33.333333333%;
+  height: 33.3333333333333333333333333333333333333333%; /* Repeating (of course) */
+  background-color: gray;
+  border: 5px solid black;
+  margin: auto;
+  font-size: 60px;
+  padding-top: 5px;
+}
+
+.square:hover{
+  background-color: yellow;
+}
+
+.x:hover, .o:hover{
+  background-color: white;
+}
+
+.x, .o {
+  background-color: white;
+}
+
+.loser {
+  color: red;
+}
+
+.winner {
+  background-color: green;
+  color: white;
+}
