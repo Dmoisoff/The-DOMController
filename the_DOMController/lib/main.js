@@ -1,6 +1,6 @@
 // const DOMNodeCollection = require("./dom_node_collection.js");
 
-const functionQueue = [];
+
 
 window.$l = (input) =>{
   if (document.readyState !== "complete" && typeof input === "function" ) {
@@ -31,7 +31,7 @@ $l.extend = (...objects) =>{
   return accumulator;
 };
 
-
+const functionQueue = [];
 
 document.addEventListener('DOMContentLoaded',function(){
   for (let i = 0; i < functionQueue.length; i++) {
