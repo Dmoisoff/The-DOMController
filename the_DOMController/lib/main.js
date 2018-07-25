@@ -1,4 +1,4 @@
-// const DOMNodeCollection = require("./dom_node_collection.js");
+const DOMNodeCollection = require("./dom_node_collection.js");
 
 
 
@@ -8,12 +8,22 @@ window.$l = (input) =>{
      return;
  }
 
+ let html = input;
+ if (input.includes('</')) {
+   let htmlElement = html.match(/<\w\S/g)[0].slice(1);
+   let htmlDoc = new DOMParser().parseFromString(html, 'text/html');
+   input = htmlDoc.querySelectorAll(htmlElement);
+ }
   let nodeList;
   if(typeof input  === 'string'){
     nodeList = document.querySelectorAll(input);
     nodeList = Array.from(nodeList);
   }else if (typeof input === 'function') {
     return input();
+  }else if (input instanceof HTMLElement) {
+    return new DomNodeCollection([input]);
+  }else if (typeof input  === 'object') {
+    return input;
   }else{
     nodeList = [input];
   }

@@ -409,10 +409,10 @@ var View = function () {
       var _this = this;
 
       if (this.game.isOver()) {
-        $('ul').off('click', 'li');
+        $l('ul').off('click', 'li');
       } else {
-        $('ul').on('click', 'li', function (e) {
-          var $square = $(e.currentTarget);
+        $l('ul').on('click', 'li', function (e) {
+          var $square = $l(e.currentTarget);
           _this.makeMove($square);
         });
       }
@@ -443,12 +443,13 @@ var View = function () {
   }, {
     key: 'setupBoard',
     value: function setupBoard() {
+      debugger;
       var board = this.game.board;
       this.$el.append('<ul class="board"></ul>');
       for (var i = 0; i < 9; i++) {
-        var $square = $('<li class="square"></li>');
+        var $square = $l('<li class="square"></li>');
         $square.data('pos', [i % 3, Math.floor(i / 3)]);
-        $(".board").append($square);
+        $l(".board").append($square);
       }
     }
   }]);

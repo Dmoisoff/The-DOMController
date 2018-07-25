@@ -10,10 +10,10 @@ class View {
 
   bindEvents() {
     if (this.game.isOver()) {
-      $('ul').off('click','li');
+      $l('ul').off('click','li');
     }else{
-      $('ul').on('click', 'li', (e) => {
-        const $square = $(e.currentTarget);
+      $l('ul').on('click', 'li', (e) => {
+        const $square = $l(e.currentTarget);
         this.makeMove($square);
       });
     }
@@ -43,12 +43,13 @@ class View {
   }
 
   setupBoard() {
+    debugger
     const board = this.game.board;
     (this.$el).append('<ul class="board"></ul>');
     for (let i = 0; i < 9; i++) {
-      const $square = $('<li class="square"></li>');
+      const $square = $l('<li class="square"></li>');
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      $(".board").append($square);
+      $l(".board").append($square);
     }
 
   }
