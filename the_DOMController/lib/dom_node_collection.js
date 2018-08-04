@@ -102,7 +102,6 @@ class DOMNodeCollection {
  }
 
  on(type, listener) {
-   debugger
    for (var i = 0; i < this.htmlElements.length; i++) {
      this.htmlElements[i].addEventListener(type, listener);
      this.htmlElements[i].eventListenerReference = listener;
@@ -117,7 +116,6 @@ class DOMNodeCollection {
  }
 // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
  data(key,value){
-   debugger
    if(this.htmlElements[0].dataset[key]){
      return this.htmlElements[0].dataset[key];
    }else{

@@ -6,7 +6,6 @@ window.$l = (input) =>{
      functionQueue.push(input);
      return;
  }
- debugger
  if (input instanceof HTMLElement) {
    return new DOMNodeCollection([input]);
  }

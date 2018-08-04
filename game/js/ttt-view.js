@@ -12,13 +12,10 @@ class View {
   }
 
   bindEvents() {
-    debugger
     if (this.game.isOver()) {
       $l('ul').off('click','li');
     }else{
-      debugger
       $l('li').on('click', (e) => {
-        debugger
         const $square = $l(e.currentTarget);
         this.makeMove($square);
       });
@@ -49,7 +46,6 @@ class View {
   }
 
   setupBoard() {
-    debugger
     const board = this.game.board;
     (this.$el).append('<ul class="board"></ul>');
     for (let i = 0; i < 9; i++) {
@@ -61,7 +57,6 @@ class View {
       // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
       // $l(".board").append($square);
       $l(".board").append(`<li class="square${i}"></li>`);
-      debugger
       const $square = $l(`.square${i}`);
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
       // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
