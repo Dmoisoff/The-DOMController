@@ -1,4 +1,4 @@
-const DOMNodeCollection = require("./dom_node_collection");
+const DOMNodeCollection = require("./dom_node_collection.js");
 
 
 window.$l = (input) =>{
@@ -21,8 +21,6 @@ window.$l = (input) =>{
     nodeList = Array.from(nodeList);
   }else if (typeof input === 'function') {
     return input();
-  // }else if (input instanceof HTMLElement) {
-  //   return new DOMNodeCollection([input]);
   }else if (typeof input  === 'object') {
     return new DOMNodeCollection(input);
   }else{
