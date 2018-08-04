@@ -203,10 +203,6 @@ var Board = function () {
   }], [{
     key: 'isValidPos',
     value: function isValidPos(pos) {
-      // if(typeof pos === 'string'){
-      //   pos = pos.split(',');
-      // }
-      debugger;
       return 0 <= pos[0] && pos[0] < 3 && 0 <= pos[1] && pos[1] < 3;
     }
   }, {
@@ -418,13 +414,10 @@ var View = function () {
     value: function bindEvents() {
       var _this = this;
 
-      debugger;
       if (this.game.isOver()) {
         $l('ul').off('click', 'li');
       } else {
-        debugger;
         $l('li').on('click', function (e) {
-          debugger;
           var $square = $l(e.currentTarget);
           _this.makeMove($square);
         });
@@ -437,7 +430,7 @@ var View = function () {
         var currentPlayer = this.game.currentPlayer;
         this.game.playMove($square.data('pos'));
         $square.addClass(currentPlayer);
-        $square.append(currentPlayer);
+        $square.text(currentPlayer);
       } catch (err) {
         alert(err.msg);
       }
@@ -456,7 +449,6 @@ var View = function () {
   }, {
     key: 'setupBoard',
     value: function setupBoard() {
-      debugger;
       var board = this.game.board;
       this.$el.append('<ul class="board"></ul>');
       for (var i = 0; i < 9; i++) {
@@ -468,7 +460,6 @@ var View = function () {
         // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
         // $l(".board").append($square);
         $l(".board").append('<li class="square' + i + '"></li>');
-        debugger;
         var $square = $l('.square' + i);
         $square.data('pos', [i % 3, Math.floor(i / 3)]);
         // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
