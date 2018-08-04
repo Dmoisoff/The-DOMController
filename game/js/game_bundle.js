@@ -430,7 +430,7 @@ var View = function () {
         var currentPlayer = this.game.currentPlayer;
         this.game.playMove($square.data('pos'));
         $square.addClass(currentPlayer);
-        $square.append(currentPlayer);
+        $square.text(currentPlayer);
       } catch (err) {
         alert(err.msg);
       }
