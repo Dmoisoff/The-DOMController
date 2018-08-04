@@ -1,5 +1,4 @@
-const DOMNodeCollection = require("./dom_node_collection.js");
-
+const DOMNodeCollection = require("./dom_node_collection");
 
 
 window.$l = (input) =>{
@@ -7,7 +6,10 @@ window.$l = (input) =>{
      functionQueue.push(input);
      return;
  }
-
+ debugger
+ if (input instanceof HTMLElement) {
+   return new DOMNodeCollection([input]);
+ }
  let html = input;
  if (input.includes('</')) {
    let htmlElement = html.match(/<\w\S/g)[0].slice(1);
@@ -20,10 +22,10 @@ window.$l = (input) =>{
     nodeList = Array.from(nodeList);
   }else if (typeof input === 'function') {
     return input();
-  }else if (input instanceof HTMLElement) {
-    return new DomNodeCollection([input]);
+  // }else if (input instanceof HTMLElement) {
+  //   return new DOMNodeCollection([input]);
   }else if (typeof input  === 'object') {
-    return input;
+    return new DOMNodeCollection(input);
   }else{
     nodeList = [input];
   }

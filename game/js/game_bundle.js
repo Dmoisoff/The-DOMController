@@ -203,6 +203,10 @@ var Board = function () {
   }], [{
     key: 'isValidPos',
     value: function isValidPos(pos) {
+      // if(typeof pos === 'string'){
+      //   pos = pos.split(',');
+      // }
+      debugger;
       return 0 <= pos[0] && pos[0] < 3 && 0 <= pos[1] && pos[1] < 3;
     }
   }, {
@@ -263,6 +267,9 @@ var Game = function () {
   }, {
     key: "playMove",
     value: function playMove(pos) {
+      if (typeof pos === 'string') {
+        pos = pos.split(',');
+      }
       this.board.placeMark(pos, this.currentPlayer);
       this.swapTurn();
     }
@@ -392,6 +399,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 __webpack_require__(/*! ./moveError.js */ "./js/moveError.js");
+// const $l = require("./../../../the_DOMController/lib/main.js");
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
 var View = function () {
   function View(game, $el) {
@@ -408,10 +418,13 @@ var View = function () {
     value: function bindEvents() {
       var _this = this;
 
+      debugger;
       if (this.game.isOver()) {
         $l('ul').off('click', 'li');
       } else {
-        $l('ul').on('click', 'li', function (e) {
+        debugger;
+        $l('li').on('click', function (e) {
+          debugger;
           var $square = $l(e.currentTarget);
           _this.makeMove($square);
         });
@@ -424,18 +437,18 @@ var View = function () {
         var currentPlayer = this.game.currentPlayer;
         this.game.playMove($square.data('pos'));
         $square.addClass(currentPlayer);
-        $square.text(currentPlayer);
+        $square.append(currentPlayer);
       } catch (err) {
         alert(err.msg);
       }
       if (this.game.isOver()) {
-        $('li').attr("style", "background-color: white; color: red");
+        $l('li').attr("style", "background-color: white; color: red");
         var winner = this.game.winner();
         if (winner) {
-          $('li.' + winner).attr("style", "background-color: green; color: white");
-          $('body').append('<h2>You win, ' + winner + '!</h2>');
+          $l('li.' + winner).attr("style", "background-color: green; color: white");
+          $l('body').append('<h2>You win, ' + winner + '!</h2>');
         } else {
-          $('body').append('<h2>It\'s a draw!</h2>');
+          $l('body').append('<h2>It\'s a draw!</h2>');
         }
         this.bindEvents();
       }
@@ -447,8 +460,18 @@ var View = function () {
       var board = this.game.board;
       this.$el.append('<ul class="board"></ul>');
       for (var i = 0; i < 9; i++) {
-        var $square = $l('<li class="square"></li>');
+        // const $square = $l('li');
+        // $square.addClass('square');
+        // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
+        // $l(".board").append($square);
+        // const $square = $l('<li class="square"></li>');
+        // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
+        // $l(".board").append($square);
+        $l(".board").append('<li class="square' + i + '"></li>');
+        debugger;
+        var $square = $l('.square' + i);
         $square.data('pos', [i % 3, Math.floor(i / 3)]);
+        // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
         $l(".board").append($square);
       }
     }

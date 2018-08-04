@@ -3,5 +3,5 @@ const Game = require("./game.js");
 
 $l( () => {
   const game = new Game();
-  const view = new View(game,$l('.ttt'));
+  const view = new View(game, $l('.ttt'));
 });

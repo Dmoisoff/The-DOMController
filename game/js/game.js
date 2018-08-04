@@ -12,6 +12,9 @@ class Game {
   }
 
   playMove(pos) {
+    if(typeof pos === 'string'){
+      pos = pos.split(',');
+    }
     this.board.placeMark(pos, this.currentPlayer);
     this.swapTurn();
   }

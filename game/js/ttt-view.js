@@ -1,4 +1,7 @@
 require("./moveError.js");
+// const $l = require("./../../../the_DOMController/lib/main.js");
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
 class View {
   constructor(game, $el) {
@@ -9,10 +12,13 @@ class View {
   }
 
   bindEvents() {
+    debugger
     if (this.game.isOver()) {
       $l('ul').off('click','li');
     }else{
-      $l('ul').on('click', 'li', (e) => {
+      debugger
+      $l('li').on('click', (e) => {
+        debugger
         const $square = $l(e.currentTarget);
         this.makeMove($square);
       });
@@ -30,13 +36,13 @@ class View {
       alert(err.msg);
     }
     if(this.game.isOver()){
-      $('li').attr("style","background-color: white; color: red");
+      $l('li').attr("style","background-color: white; color: red");
       const winner = this.game.winner();
       if (winner){
-        $(`li.${winner}`).attr("style", "background-color: green; color: white");
-        $('body').append(`<h2>You win, ${winner}!</h2>`);
+        $l(`li.${winner}`).attr("style", "background-color: green; color: white");
+        $l('body').append(`<h2>You win, ${winner}!</h2>`);
       } else {
-        $('body').append(`<h2>It's a draw!</h2>`);
+        $l('body').append(`<h2>It's a draw!</h2>`);
       }
       this.bindEvents();
     }
@@ -47,9 +53,19 @@ class View {
     const board = this.game.board;
     (this.$el).append('<ul class="board"></ul>');
     for (let i = 0; i < 9; i++) {
-      const $square = $l('<li class="square"></li>');
+      // const $square = $l('li');
+      // $square.addClass('square');
+      // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
+      // $l(".board").append($square);
+      // const $square = $l('<li class="square"></li>');
+      // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
+      // $l(".board").append($square);
+      $l(".board").append(`<li class="square${i}"></li>`);
+      debugger
+      const $square = $l(`.square${i}`);
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      $l(".board").append($square);
+      // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
+      $l(".board").append($square)
     }
 
   }

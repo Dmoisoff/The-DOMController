@@ -99,6 +99,10 @@ class Board {
   }
 
   static isValidPos(pos) {
+    // if(typeof pos === 'string'){
+    //   pos = pos.split(',');
+    // }
+    debugger
     return (0 <= pos[0]) &&
     (pos[0] < 3) &&
     (0 <= pos[1]) &&

@@ -25,7 +25,7 @@ h2{
   border: 5px solid black;
 }
 
-.square {
+[class*="square"] {
   box-sizing: border-box;
   width: 33.333333333%;
   height: 33.3333333333333333333333333333333333333333%; /* Repeating (of course) */
@@ -36,7 +36,7 @@ h2{
   padding-top: 5px;
 }
 
-.square:hover{
+[class*="square"]:hover{
   background-color: yellow;
 }
 
