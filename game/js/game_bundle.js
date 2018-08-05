@@ -161,13 +161,7 @@ var Board = function () {
   }, {
     key: 'winner',
     value: function winner() {
-      var posSeqs = [
-      // horizontals
-      [[0, 0], [0, 1], [0, 2]], [[1, 0], [1, 1], [1, 2]], [[2, 0], [2, 1], [2, 2]],
-      // verticals
-      [[0, 0], [1, 0], [2, 0]], [[0, 1], [1, 1], [2, 1]], [[0, 2], [1, 2], [2, 2]],
-      // diagonals
-      [[0, 0], [1, 1], [2, 2]], [[2, 0], [1, 1], [0, 2]]];
+      var posSeqs = [[[0, 0], [0, 1], [0, 2]], [[1, 0], [1, 1], [1, 2]], [[2, 0], [2, 1], [2, 2]], [[0, 0], [1, 0], [2, 0]], [[0, 1], [1, 1], [2, 1]], [[0, 2], [1, 2], [2, 2]], [[0, 0], [1, 1], [2, 2]], [[2, 0], [1, 1], [0, 2]]];
 
       for (var i = 0; i < posSeqs.length; i++) {
         var winner = this.winnerHelper(posSeqs[i]);
@@ -310,7 +304,6 @@ var Game = function () {
           }
           gameCompletionCallback();
         } else {
-          // continue loop
           _this.run(reader, gameCompletionCallback);
         }
       });
@@ -371,11 +364,6 @@ $l(function () {
 var MoveError = function MoveError(msg) {
   this.msg = msg;
 };
-
-// MoveError really should be a child class of the built in Error object provided
-// by Javascript, but since we haven't covered inheritance yet, we'll just
-// let it be a vanilla Object for now!
-
 module.exports = MoveError;
 
 /***/ }),
@@ -395,9 +383,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 __webpack_require__(/*! ./moveError.js */ "./js/moveError.js");
-// const $l = require("./../../../the_DOMController/lib/main.js");
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 
 var View = function () {
   function View(game, $el) {
@@ -452,17 +437,9 @@ var View = function () {
       var board = this.game.board;
       this.$el.append('<ul class="board"></ul>');
       for (var i = 0; i < 9; i++) {
-        // const $square = $l('li');
-        // $square.addClass('square');
-        // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-        // $l(".board").append($square);
-        // const $square = $l('<li class="square"></li>');
-        // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-        // $l(".board").append($square);
         $l(".board").append('<li class="square' + i + '"></li>');
         var $square = $l('.square' + i);
         $square.data('pos', [i % 3, Math.floor(i / 3)]);
-        // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
         $l(".board").append($square);
       }
     }

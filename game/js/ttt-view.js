@@ -1,7 +1,4 @@
 require("./moveError.js");
-// const $l = require("./../../../the_DOMController/lib/main.js");
-// import React from 'react';
-// import ReactDOM from 'react-dom';
 
 class View {
   constructor(game, $el) {
@@ -49,17 +46,9 @@ class View {
     const board = this.game.board;
     (this.$el).append('<ul class="board"></ul>');
     for (let i = 0; i < 9; i++) {
-      // const $square = $l('li');
-      // $square.addClass('square');
-      // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      // $l(".board").append($square);
-      // const $square = $l('<li class="square"></li>');
-      // $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      // $l(".board").append($square);
       $l(".board").append(`<li class="square${i}"></li>`);
       const $square = $l(`.square${i}`);
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      // $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
       $l(".board").append($square)
     }
 

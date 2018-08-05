@@ -55,7 +55,6 @@ class Game {
         }
         gameCompletionCallback();
       } else {
-        // continue loop
         this.run(reader, gameCompletionCallback);
       }
     });
