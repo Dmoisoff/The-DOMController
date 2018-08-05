@@ -49,7 +49,7 @@ class View {
       $l(".board").append(`<li class="square${i}"></li>`);
       const $square = $l(`.square${i}`);
       $square.data( 'pos', [ i % 3 , Math.floor(i / 3) ] );
-      $l(".board").append($square)
+      $l(".board").append($square);
     }
 
   }
