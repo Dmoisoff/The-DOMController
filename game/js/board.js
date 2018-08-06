@@ -7,7 +7,7 @@ class Board {
 
   isEmptyPos(pos) {
     if (!Board.isValidPos(pos)) {
-      throw new MoveError('Is not valid position!');
+      throw new MoveError('You have selected an invalid position, please close the alert to continue');
     }
 
     return (this.grid[pos[0]][pos[1]] === null);
@@ -31,7 +31,7 @@ class Board {
 
   placeMark(pos, mark) {
     if (!this.isEmptyPos(pos)) {
-      throw new MoveError('Is not an empty position!');
+      throw new MoveError('The square you have selected has already been taken. Please close the alert to continue');
     }
 
     this.grid[pos[0]][pos[1]] = mark;
