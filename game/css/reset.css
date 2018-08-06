@@ -46,3 +46,22 @@ input[type="submit"] {
 .background{
   background-color: lightskyblue;
 }
+
+.links{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.icon-size{
+  display: block;
+  width: 50%;
+  height: auto;
+  max-width: 65px;
+  max-height: 65px;
+}
+
+.footer-space{
+  margin-top: 30px;
+}

@@ -401,8 +401,8 @@ var View = function () {
 
       if (this.game.isOver()) {
         $l('ul').off('click', 'li');
-        $l('body').append('<input type="submit" name="" value="Restart Game"');
-        $l('body').append('<h2 class=\'restart\'>Click here to play again <i class="far fa-smile-beam"></i></h2>');$l('.restart').on('click', function () {
+        $l('span').append('<input type="submit" name="" value="Restart Game"');
+        $l('span').append('<h2 class=\'restart\'>Click here to play again <i class="far fa-smile-beam"></i></h2>');$l('.restart').on('click', function () {
           document.location.reload();
         });
       } else {
@@ -428,9 +428,9 @@ var View = function () {
         var winner = this.game.winner();
         if (winner) {
           $l('li.' + winner).attr("style", "background-color: green; color: white");
-          $l('body').append('<h2>You win, ' + winner + '!</h2>');
+          $l('span').append('<h2>You win, ' + winner + '!</h2>');
         } else {
-          $l('body').append('<h2>It\'s a draw!</h2>');
+          $l('span').append('<h2>It\'s a draw!</h2>');
         }
         this.bindEvents();
       }
