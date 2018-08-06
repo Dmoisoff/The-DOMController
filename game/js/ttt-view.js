@@ -11,6 +11,10 @@ class View {
   bindEvents() {
     if (this.game.isOver()) {
       $l('ul').off('click','li');
+      $l('body').append('<input type="submit" name="" value="Restart Game"');
+      $l('body').append(`<h2 class='restart'>Click here to play again <i class="far fa-smile-beam"></i></h2>`);      $l('.restart').on('click', () => {
+        document.location.reload();
+      });
     }else{
       $l('li').on('click', (e) => {
         const $square = $l(e.currentTarget);

@@ -56,3 +56,7 @@ h2{
   background-color: green;
   color: white;
 }
+
+.restart:hover{
+  cursor: pointer;
+}
