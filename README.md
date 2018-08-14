@@ -20,4 +20,4 @@ A lightweight version of jQuery built using vanilla JavaScript.
 
 **Proof of Concept**
 * Implemented The DOMController to run a browser based
-[Tic Tac Toe Game](https://dmoisoff.com/Tic_Tac_Toe_with_the_DOMController/)
+[Tic Tac Toe Game](https://dmoisoff.com/Tic_Tac_Toe_with_the_DOMController/).
