@@ -10,7 +10,7 @@ A lightweight version of jQuery built using vanilla JavaScript.
 
 
 
-**Tools used for Share Your Build** (Languages, Frameworks, Libraries, Etc.)
+**Tools used for The DOMController** (Languages, Frameworks, Libraries, Etc.)
 * JavaScript
 
 
