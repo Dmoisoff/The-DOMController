@@ -114,7 +114,7 @@ class DOMNodeCollection {
      this.htmlElements[i].eventListenerReference = '';
    }
  }
-// $square.htmlElements[0].dataset['pos']=[ i % 3 , Math.floor(i / 3) ];
+
  data(key,value){
    if(this.htmlElements[0].dataset[key]){
      return this.htmlElements[0].dataset[key];
@@ -122,11 +122,6 @@ class DOMNodeCollection {
      this.htmlElements[0].dataset[key]=[value];
    }
 
-   // if(this[key]){
-   //   return this[key];
-   // }else{
-   // this[key] = value;
-   // }
  }
 
 }
