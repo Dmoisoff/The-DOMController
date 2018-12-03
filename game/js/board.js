@@ -8,7 +8,7 @@ class Board {
   isEmptyPos(pos) {
     if (!Board.isValidPos(pos)) {
       throw new MoveError(
-        "You have selected an invalid position, please close the alert to continue"
+        "Oops! That is an invalid position. Please select a blank square to continue."
       );
     }
 

@@ -113,7 +113,7 @@ var Board = function () {
     key: "isEmptyPos",
     value: function isEmptyPos(pos) {
       if (!Board.isValidPos(pos)) {
-        throw new MoveError("You have selected an invalid position, please close the alert to continue");
+        throw new MoveError("Oops! That is an invalid position. Please select a blank square to continue.");
       }
 
       return this.grid[pos[0]][pos[1]] === null;
