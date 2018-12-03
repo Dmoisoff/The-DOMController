@@ -7,10 +7,12 @@ class Board {
 
   isEmptyPos(pos) {
     if (!Board.isValidPos(pos)) {
-      throw new MoveError('You have selected an invalid position, please close the alert to continue');
+      throw new MoveError(
+        "You have selected an invalid position, please close the alert to continue"
+      );
     }
 
-    return (this.grid[pos[0]][pos[1]] === null);
+    return this.grid[pos[0]][pos[1]] === null;
   }
 
   isOver() {
@@ -31,7 +33,9 @@ class Board {
 
   placeMark(pos, mark) {
     if (!this.isEmptyPos(pos)) {
-      throw new MoveError('The square you have selected has already been taken. Please close the alert to continue');
+      throw new MoveError(
+        "Oops! The square you selected has already been taken. Please select a blank square to continue."
+      );
     }
 
     this.grid[pos[0]][pos[1]] = mark;
@@ -42,19 +46,16 @@ class Board {
     for (let rowIdx = 0; rowIdx < 3; rowIdx++) {
       const marks = [];
       for (let colIdx = 0; colIdx < 3; colIdx++) {
-        marks.push(
-          this.grid[rowIdx][colIdx] ? this.grid[rowIdx][colIdx] : " "
-        );
+        marks.push(this.grid[rowIdx][colIdx] ? this.grid[rowIdx][colIdx] : " ");
       }
-      strs.push(`${marks.join('|')}\n`);
+      strs.push(`${marks.join("|")}\n`);
     }
 
-    console.log(strs.join('-----\n'));
+    console.log(strs.join("-----\n"));
   }
 
   winner() {
     const posSeqs = [
-
       [[0, 0], [0, 1], [0, 2]],
       [[1, 0], [1, 1], [1, 2]],
       [[2, 0], [2, 1], [2, 2]],
@@ -99,10 +100,7 @@ class Board {
   }
 
   static isValidPos(pos) {
-    return (0 <= pos[0]) &&
-    (pos[0] < 3) &&
-    (0 <= pos[1]) &&
-    (pos[1] < 3);
+    return 0 <= pos[0] && pos[0] < 3 && 0 <= pos[1] && pos[1] < 3;
   }
 
   static makeGrid() {
@@ -119,6 +117,6 @@ class Board {
   }
 }
 
-Board.marks = ['x', 'o'];
+Board.marks = ["x", "o"];
 
 module.exports = Board;
